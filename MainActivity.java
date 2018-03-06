@@ -12,7 +12,12 @@ import android.view.View;
 public class MainActivity extends AppCompatActivity
 {
     EditText etTemperature;
-    TextView tvCelsius;
+    TextView tvAnswer;
+    ToggleButton swapUnits;
+    TextView top;
+    TextView bottom;
+
+    String unit;
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -32,7 +37,10 @@ public class MainActivity extends AppCompatActivity
         etTemperature = (EditText) findViewById(R.id.etTemperature); // like VB Textbox 
         Button btnCompute = (Button) findViewById(R.id.btnCompute);         // like VB Button 
         Button btnReset = (Button) findViewById(R.id.btnReset);
-        tvCelsius = (TextView) findViewById(R.id.tvCelsius);
+        tvAnswer = (TextView) findViewById(R.id.tvAnswer);
+        top = (TextView) findViewById(R.id.top);
+        bottom = (TextView) findViewById(R.id.bottom);
+        swapUnits = (ToggleButton) findViewById(R.id.swapUnits);
 
         btnCompute.setOnClickListener(new Button.OnClickListener()
         {
@@ -54,19 +62,45 @@ public class MainActivity extends AppCompatActivity
 
         });
 
+        swapUnits.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked)
+                {
+                    unit = "C";
+                    top.setText("Enter Celsius Temperature:");
+                    bottom.setText("The equivalent Fahrenheit temperature is:");
+                }
+                else
+                {
+                    unit = "F";
+                    top.setText("Enter Fahrenheit Temperature:");
+                    bottom.setText("The equivalent Celsius temperature is:");
+                }
+            }
+        });
+
     }// end of onCreate method
 
     private void calculate()
     {
-        double degreesFahrenheit = Double.parseDouble(etTemperature.getText().toString());
-        double degreesCelsius = (degreesFahrenheit - 32) * 5./9.;
-        tvCelsius.setText(Double.toString(degreesCelsius));
+        if (unit == "F") //convert f to c
+        {
+            double degreesFahrenheit = Double.parseDouble(etTemperature.getText().toString());
+            double degreesCelsius = (degreesFahrenheit - 32) * 5. / 9.;
+            tvAnswer.setText(Double.toString(degreesCelsius));
+        }
+        else if (unit == "C") //convert c to f
+        {
+            double degreesCelsius = Double.parseDouble(etTemperature.getText().toString());
+            double degreesFahrenheit = (degreesCelsius * 9. / 5.)+ 32;
+            tvAnswer.setText(Double.toString(degreesFahrenheit));
+        }
     }
 
     private void reset()
     {
         etTemperature.setText("");
-        tvCelsius.setText("");
+        tvAnswer.setText("");
     }
 
 }// end of MainActivity class
