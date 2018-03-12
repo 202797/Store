@@ -3,7 +3,7 @@ package com.anderson.bryce.store;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 //import android.widget.EditText;
-//import android.widget.Toast;
+import android.widget.Toast;
 //import android.widget.TextView;
 //import android.widget.Button;
 import android.widget.*;
@@ -13,11 +13,13 @@ public class MainActivity extends AppCompatActivity
 {
     EditText etTemperature;
     TextView tvAnswer;
+    Button btnCompute;
+    Button btnReset;
     ToggleButton swapUnits;
     TextView top;
     TextView bottom;
 
-    String unit;
+    String unit = "F";
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -35,8 +37,8 @@ public class MainActivity extends AppCompatActivity
         //Toast.makeText(getApplicationContext(), "msg msg", Toast.LENGTH_LONG).show(); 
 
         etTemperature = (EditText) findViewById(R.id.etTemperature); // like VB Textbox 
-        Button btnCompute = (Button) findViewById(R.id.btnCompute);         // like VB Button 
-        Button btnReset = (Button) findViewById(R.id.btnReset);
+        btnCompute = (Button) findViewById(R.id.btnCompute);         // like VB Button 
+        btnReset = (Button) findViewById(R.id.btnReset);
         tvAnswer = (TextView) findViewById(R.id.tvAnswer);
         top = (TextView) findViewById(R.id.top);
         bottom = (TextView) findViewById(R.id.bottom);
@@ -69,12 +71,14 @@ public class MainActivity extends AppCompatActivity
                     unit = "C";
                     top.setText("Enter Celsius Temperature:");
                     bottom.setText("The equivalent Fahrenheit temperature is:");
+                    Toast.makeText(MainActivity.this, "Set to Celsius-Fahrenheit conversion", Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
                     unit = "F";
                     top.setText("Enter Fahrenheit Temperature:");
                     bottom.setText("The equivalent Celsius temperature is:");
+                    Toast.makeText(MainActivity.this, "Set to Fahrenheit-Celsius conversion", Toast.LENGTH_SHORT).show();
                 }
             }
         });
