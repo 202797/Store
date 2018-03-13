@@ -14,7 +14,7 @@
             android:layout_height="wrap_content" />
 
         <TextView
-            android:id="@+id/top"
+            android:id="@+id/tvEnter"
             android:text="Enter Fahrenheit Temperature:"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
@@ -38,7 +38,7 @@
             android:layout_height="wrap_content" />
 
         <TextView
-            android:id="@+id/bottom"
+            android:id="@+id/tvEquivalent"
             android:text="The equivalent Celsius temperature is:"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
