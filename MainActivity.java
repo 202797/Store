@@ -83,13 +83,13 @@ public class MainActivity extends AppCompatActivity
         {
             double degreesFahrenheit = Double.parseDouble(etTemperature.getText().toString());
             double degreesCelsius = (degreesFahrenheit - 32) * 5. / 9.;
-            tvAnswer.setText(Double.toString(degreesCelsius));
+            tvAnswer.setText(Double.toString(degreesCelsius) + " ˚C";
         }
         else if (unit.equals("C")) //convert C to F
         {
             double degreesCelsius = Double.parseDouble(etTemperature.getText().toString());
             double degreesFahrenheit = (degreesCelsius * 9. / 5.)+ 32;
-            tvAnswer.setText(Double.toString(degreesFahrenheit));
+            tvAnswer.setText(Double.toString(degreesFahrenheit) + " ˚F";
         }
     }
 
