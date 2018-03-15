@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity
         else if (unit.equals("C")) //convert C to F
         {
             double degreesCelsius = Double.parseDouble(etTemperature.getText().toString());
-            double degreesFahrenheit = (degreesCelsius * 9. / 5.)+ 32;
+            double degreesFahrenheit = (degreesCelsius * 9. / 5.) + 32;
             tvAnswer.setText(Double.toString(degreesFahrenheit) + " ˚F";
         }
     }
