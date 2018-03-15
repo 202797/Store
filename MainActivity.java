@@ -1,3 +1,10 @@
+/*
+    Store Project
+    Bryce Anderson
+    Period 5-6
+*/
+
+
 package com.anderson.bryce.store;
 
 import android.graphics.Color;
@@ -56,8 +63,10 @@ public class MainActivity extends AppCompatActivity
 
         });
 
-        swapUnits.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        swapUnits.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() 
+        {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+            {
                 if (isChecked)
                 {
                     unit = "C";
@@ -83,13 +92,13 @@ public class MainActivity extends AppCompatActivity
         {
             double degreesFahrenheit = Double.parseDouble(etTemperature.getText().toString());
             double degreesCelsius = (degreesFahrenheit - 32) * 5. / 9.;
-            tvAnswer.setText(Double.toString(degreesCelsius) + " ˚C";
+            tvAnswer.setText(Double.toString(degreesCelsius) + " ˚C");
         }
         else if (unit.equals("C")) //convert C to F
         {
             double degreesCelsius = Double.parseDouble(etTemperature.getText().toString());
             double degreesFahrenheit = (degreesCelsius * 9. / 5.) + 32;
-            tvAnswer.setText(Double.toString(degreesFahrenheit) + " ˚F";
+            tvAnswer.setText(Double.toString(degreesFahrenheit) + " ˚F");
         }
     }
 
