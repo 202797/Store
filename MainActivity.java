@@ -63,24 +63,10 @@ public class MainActivity extends AppCompatActivity
 
         });
 
-        swapUnits.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() 
+        swapUnits.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
         {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
-            {
-                if (isChecked)
-                {
-                    unit = "C";
-                    tvEnter.setText("Enter Celsius Temperature:");
-                    tvEquivalent.setText("The equivalent Fahrenheit temperature is:");
-                    Toast.makeText(MainActivity.this, "Set to Celsius-Fahrenheit conversion", Toast.LENGTH_SHORT).show();
-                }
-                else
-                {
-                    unit = "F";
-                    tvEnter.setText("Enter Fahrenheit Temperature:");
-                    tvEquivalent.setText("The equivalent Celsius temperature is:");
-                    Toast.makeText(MainActivity.this, "Set to Fahrenheit-Celsius conversion", Toast.LENGTH_SHORT).show();
-                }
+            {   check();
             }
         });
 
@@ -108,4 +94,21 @@ public class MainActivity extends AppCompatActivity
         tvAnswer.setText("");
     }
 
+    private void check()
+    {
+        if (swapUnits.isChecked())
+        {
+            unit = "C";
+            tvEnter.setText("Enter Celsius Temperature:");
+            tvEquivalent.setText("The equivalent Fahrenheit temperature is:");
+            Toast.makeText(MainActivity.this, "Set to Celsius-Fahrenheit conversion", Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+            unit = "F";
+            tvEnter.setText("Enter Fahrenheit Temperature:");
+            tvEquivalent.setText("The equivalent Celsius temperature is:");
+            Toast.makeText(MainActivity.this, "Set to Fahrenheit-Celsius conversion", Toast.LENGTH_SHORT).show();
+        }
+    }
 }// end of MainActivity class
