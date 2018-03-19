@@ -15,15 +15,15 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity
 {
-    EditText etTemperature;
-    TextView tvAnswer;
-    Button btnCompute;
-    Button btnReset;
-    ToggleButton swapUnits;
-    TextView tvEnter;
-    TextView tvEquivalent;
+    EditText etTemperature;   //user inputs temperature
+    TextView tvAnswer;   //displays answer
+    Button btnCompute;   //convert input into other unit
+    Button btnReset;   //clear input and answer
+    ToggleButton swapUnits;   //switch between units
+    TextView tvEnter;   //prompts user to enter
+    TextView tvEquivalent;   //tells what the equivalent is
 
-    String unit = "F";
+    String unit = "F";   //unit
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity
         tvEnter = (TextView) findViewById(R.id.tvEnter);
         tvEquivalent = (TextView) findViewById(R.id.tvEquivalent);
         swapUnits = (ToggleButton) findViewById(R.id.swapUnits);
-
+        //makes output look the same as input
         tvAnswer.setTextSize(18);
         tvAnswer.setTextColor(Color.BLACK);
 
@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity
 
     }// end of onCreate method
 
-    private void calculate()
+    private void calculate()   //calculates input into other unit
     {
         if (unit.equals("F")) //convert F to C
         {
@@ -88,13 +88,13 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    private void reset()
+    private void reset()   //clears input and answer
     {
         etTemperature.setText("");
         tvAnswer.setText("");
     }
 
-    private void check()
+    private void check()   //switches units
     {
         if (swapUnits.isChecked())
         {
