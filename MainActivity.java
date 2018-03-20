@@ -32,18 +32,18 @@ public class MainActivity extends AppCompatActivity
 
         setContentView(R.layout.activity_main);
 
-        etTemperature = (EditText) findViewById(R.id.etTemperature); // like VB Textbox 
-        btnCompute = (Button) findViewById(R.id.btnCompute);         // like VB Button 
+        etTemperature = (EditText) findViewById(R.id.etTemperature); 
+        btnCompute = (Button) findViewById(R.id.btnCompute);         
         btnReset = (Button) findViewById(R.id.btnReset);
         tvAnswer = (TextView) findViewById(R.id.tvAnswer);
         tvEnter = (TextView) findViewById(R.id.tvEnter);
         tvEquivalent = (TextView) findViewById(R.id.tvEquivalent);
         swapUnits = (ToggleButton) findViewById(R.id.swapUnits);
-        //makes output look the same as input
+        //makes output text look the same as input
         tvAnswer.setTextSize(18);
         tvAnswer.setTextColor(Color.BLACK);
 
-        btnCompute.setOnClickListener(new Button.OnClickListener()
+        btnCompute.setOnClickListener(new Button.OnClickListener() .  //calculates on click
         {
 
             public void onClick(View v)
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity
 
         });
 
-        btnReset.setOnClickListener(new Button.OnClickListener()
+        btnReset.setOnClickListener(new Button.OnClickListener() .  //clears input and answer on click
         {
 
             public void onClick(View v)
@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity
 
         });
 
-        swapUnits.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+        swapUnits.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() //switches units on toggle
         {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
             {   check();
@@ -96,14 +96,14 @@ public class MainActivity extends AppCompatActivity
 
     private void check()   //switches units
     {
-        if (swapUnits.isChecked())
+        if (swapUnits.isChecked())   //convert C to F
         {
             unit = "C";
             tvEnter.setText("Enter Celsius Temperature:");
             tvEquivalent.setText("The equivalent Fahrenheit temperature is:");
             Toast.makeText(MainActivity.this, "Set to Celsius-Fahrenheit conversion", Toast.LENGTH_SHORT).show();
         }
-        else
+        else   //convert F to C
         {
             unit = "F";
             tvEnter.setText("Enter Fahrenheit Temperature:");
